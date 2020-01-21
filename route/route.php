@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 
 use think\facade\Route;
-
+Route::post('img','api/v1.UploadImg/image');
 Route::group('', function () {
     Route::group('cms', function () {
         // 账户相关接口分组
@@ -92,7 +92,7 @@ Route::group('', function () {
             Route::get('','api/v1.Banner/getBanners');
             Route::post('','api/v1.Banner/addBanner');
             Route::delete('','api/v1.Banner/delBanner');
-            Route::delete('','api/v1.Theme/delTheme');
+
             // 编辑轮播图主体信息
             Route::patch(':id','api/v1.Banner/editBannerInfo');
             // 新增轮播图元素
@@ -107,6 +107,7 @@ Route::group('', function () {
             Route::get('','api/v1.Theme/getSimpleList');
             Route::get(':id','api/v1.Theme/getThemeById');
             Route::post('','api/v1.Theme/addTheme');
+            Route::delete('','api/v1.Theme/delTheme');
             // 编辑精选主题信息
             Route::patch(':id','api/v1.Theme/updateThemeInfo');
             // 移除精选主题关联商品
@@ -172,6 +173,7 @@ Route::group('', function () {
             // 时间范围统计订单数据
             Route::get('order/base', 'api/v1.Analysis/getOrderBaseStatistics');
         });
+
     });
 })->middleware(['Auth','ReflexValidate'])->allowCrossDomain();
 

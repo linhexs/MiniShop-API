@@ -34,6 +34,7 @@ class Banner
      * 使用验证器注册
      * @validate('BannerForm')
      * @return \think\response\Json
+     * @throws Exception
      */
     public function addBanner()
     {
@@ -43,7 +44,7 @@ class Banner
         } catch (\Exception $e) {
             throw new Exception($e->getMessage(), 500);
         }
-        return writeJson("setting.code.success", [], '新增成功！');
+        return writeJson("201", [], '新增成功！');
     }
 
     /**

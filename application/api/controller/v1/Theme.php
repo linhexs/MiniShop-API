@@ -71,7 +71,7 @@ class Theme
         if (!$res) throw new ThemeException(['msg' => '精选主题删除失败']);
         // 记录本次行为的日志
         Hook::listen('logger', '删除了id为' . implode(',', $ids) . '的精选主题');
-        return writeJson("setting.code.success", [], '精选主题删除成功！');
+        return writeJson(201, [], '精选主题删除成功！');
     }
     /**
      * 更新精选主题信息
