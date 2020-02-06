@@ -27,8 +27,8 @@ class Product extends BaseModel
      */
     public static function getProductsPaginate($params){
         $product=[];
-        if(array_key_exists('product',$params)){
-            $product[] = ['name','like','%',$params['product']];
+        if (array_key_exists('product_name', $params)) {
+            $product[] = ['name', 'like', '%' . $params['product_name'] . '%'];
         }
         list($start,$count) = paginate();
         $productList = self::where($product);

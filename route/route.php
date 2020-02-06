@@ -92,7 +92,6 @@ Route::group('', function () {
             Route::get('','api/v1.Banner/getBanners');
             Route::post('','api/v1.Banner/addBanner');
             Route::delete('','api/v1.Banner/delBanner');
-
             // 编辑轮播图主体信息
             Route::patch(':id','api/v1.Banner/editBannerInfo');
             // 新增轮播图元素

@@ -57,9 +57,9 @@ class Theme
                 'msg' => '精选主题新增失败'
             ]);
         }
-        return writeJson("setting.code.success", ['id' => $theme->id], '精选主题新增成功！');
+        return writeJson(201, ['id' => $theme->id], '精选主题新增成功！');
     }
-    /**
+    /**updateThemeInfo
      * @auth('删除精选主题','精选主题管理')
      * @param('ids','待删除的主题id数组','require|array|min:1')
      */

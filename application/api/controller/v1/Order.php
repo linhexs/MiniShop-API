@@ -60,7 +60,7 @@ class Order
         if($result['total_nums'] == 0){
             throw new OrderException([
                 'code'=>404,
-                'msg'=>'为查询到相关的发货的记录',
+                'msg'=>'未查询到相关的发货的记录',
                 'error_code'=>'70010'
             ]);
         }

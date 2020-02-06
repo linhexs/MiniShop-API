@@ -6,7 +6,7 @@
  * Time: 21:02
  */
 
-namespace app\api\validate;
+namespace app\api\validate\theme;
 
 
 use LinCmsTp5\validate\BaseValidate;

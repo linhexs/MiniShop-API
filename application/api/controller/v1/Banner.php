@@ -107,7 +107,6 @@ class Banner
     public function editBannerItem()
     {
         $data = Request::put('items');
-
         $bannerItem = new BannerItem();
         # allowField(true)表示只允许写入数据表中存在的字段。
         # saveAll()接收一个数组，用于批量更新或者新增。通过判断传入的数组中是否设置了id属性，如果有则视为更新，无则视为新增
