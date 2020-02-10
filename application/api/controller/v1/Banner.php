@@ -17,6 +17,7 @@ class Banner
     protected $hidden = ['delete_time', 'update_time'];
 
     /**
+     * @auth('轮播图列表','轮播图')
      * 获取banners
      * @return array|\PDOStatement|string|\think\Collection
      * @throws \think\db\exception\DataNotFoundException
@@ -30,6 +31,7 @@ class Banner
     }
 
     /**
+     * @auth('新增轮播图','轮播图')
      * 新增轮播图接口
      * 使用验证器注册
      * @validate('BannerForm')
@@ -48,6 +50,7 @@ class Banner
     }
 
     /**
+     * @auth('删除轮播图','轮播图')
      * @param('ids','待删除的轮播图id列表','require|array|min:1')
      * 删除banner
      * @return \think\response\Json
@@ -67,6 +70,7 @@ class Banner
         return writeJson(201, [], '轮播图删除成功！');
     }
     /**
+     * @auth('编辑轮播图','轮播图')
      * 编辑轮播图基础信息
      * @param $id
      * @param('id','轮播图id','require|number')

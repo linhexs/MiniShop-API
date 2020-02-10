@@ -15,6 +15,7 @@ use think\facade\Hook;
 class Category
 {
     /**
+     * @auth('分类列表','商品分类')
      * 查询所有商品分类
      * @throws CategoryException
      * @throws \think\db\exception\DataNotFoundException
@@ -32,6 +33,7 @@ class Category
         return $result;
     }
     /**
+     * @auth('新增商品分类','商品分类')
      * 新增商品分类
      * @return \think\response\Json
      * @throws CategoryException
@@ -47,6 +49,7 @@ class Category
 
     }
     /**
+     * @auth('编辑商品分类','商品分类')
      * 更新指定分类信息
      * @validate('CategoryForm.edit')
      */
@@ -66,8 +69,8 @@ class Category
         return writeJson(201, [], '商品分类更新成功！');
     }
     /**
+     * @auth('删除商品分类','商品分类')
      * 删除商品分类
-     * @auth('删除商品分类','商品管理')
      * @param('ids','待删除的商品分类id列表','require|array|min:1')
      */
     public function delCategory()

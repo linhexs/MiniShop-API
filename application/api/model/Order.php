@@ -28,9 +28,12 @@ class Order extends BaseModel
      * 获取订单列表
      */
     public static function getOrdersPaginate($params){
+        $query = [];
         $field = ['order_no', ['name', 'snap_address->name']];
         $query = self::equalQuery($field, $params);
-        $query[] = self::betweenTimeQuery('start', 'end', $params);
+        if(array_key_exists('start',$params) && array_key_exists('end',$params)){
+            $query[] = self::betweenTimeQuery('start', 'end', $params);
+        }
         list($start, $count) = paginate();
         $orderList = self::where($query);
         $totalNums = $orderList->count();

@@ -69,23 +69,21 @@ Route::group('', function () {
         //上传文件类接口
         Route::post('file','api/cms.File/postFile');
     });
-    Route::group('v1', function () {
-        Route::group('book',function (){
-            // 查询所有图书
-            Route::get('', 'api/v1.Book/getBooks');
-            // 新建图书
-            Route::post('', 'api/v1.Book/create');
-            // 查询指定bid的图书
-            Route::get(':bid', 'api/v1.Book/getBook');
-            // 搜索图书
-
-            // 更新图书
-            Route::put(':bid', 'api/v1.Book/update');
-            // 删除图书
-            Route::delete(':bid', 'api/v1.Book/delete');
-        });
-
-    });
+//    Route::group('v1', function () {
+//        Route::group('book',function (){
+//            // 查询所有图书
+//            Route::get('', 'api/v1.Book/getBooks');
+//            // 新建图书
+//            Route::post('', 'api/v1.Book/create');
+//            // 查询指定bid的图书
+//            Route::get(':bid', 'api/v1.Book/getBook');
+//            // 搜索图书
+//            // 更新图书
+//            Route::put(':bid', 'api/v1.Book/update');
+//            // 删除图书
+//            Route::delete(':bid', 'api/v1.Book/delete');
+//        });
+//    });
     //获取banner接口
     Route::group('v1', function () {
         Route::group('banner',function(){
