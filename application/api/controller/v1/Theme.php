@@ -100,7 +100,6 @@ class Theme
     /**
      * 新增精选主题关联商品
      * @param('id','精选主题id','require|number')
-     * @param('products','商品id列表','require|array|min:1')
      */
     public function addThemeProduct($id)
     {

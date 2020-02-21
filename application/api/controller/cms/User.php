@@ -4,9 +4,11 @@ namespace app\api\controller\cms;
 
 //use app\api\validate\user\LoginForm;  # 开启注释验证器以后，本行可以去掉，这里做更替说明
 //use app\api\validate\user\RegisterForm; # 开启注释验证器以后，本行可以去掉，这里做更替说明
+use app\lib\exception\token\TokenException;
 use app\lib\token\Token;
 use LinCmsTp5\admin\model\LinUser;
 use think\Controller;
+use think\Exception;
 use think\facade\Hook;
 use think\Request;
 
@@ -35,11 +37,16 @@ class User extends Controller
     /**
      * 用户更新信息
      * @param Request $request
+     * @throws \LinCmsTp5\admin\exception\user\UserException
      */
     public function update(Request $request)
     {
         $params = $request->put();
-        $uid = Token::getCurrentUID();
+        try {
+            $uid = Token::getCurrentUID();
+        } catch (TokenException $e) {
+        } catch (Exception $e) {
+        }
         LinUser::updateUserInfo($uid, $params);
         return writeJson(201, '', '操作成功');
     }

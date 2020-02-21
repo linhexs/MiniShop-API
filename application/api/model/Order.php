@@ -45,7 +45,7 @@ class Order extends BaseModel
             'total_nums'=>$totalNums
         ];
     }
-    public static function getOrderStatisticsByDate($params)
+    public static function getOrderStatisticsByDate($params,$format)
     {
         $query = [];
         // 查询时间范围
@@ -56,7 +56,7 @@ class Order extends BaseModel
 
         $order = self::where($query)
             // 格式化create_time字段；做聚合查询
-            ->field("FROM_UNIXTIME(create_time,'%Y-%m-%d') as date,
+            ->field("FROM_UNIXTIME(create_time,'{$format}') as date,
                     count(*) as count,sum(total_price) as total_price")
             // 查询结果按date字段分组，注意这里因为在field()中给create_time字段起了别名date，所以用date
             ->group("date")

@@ -1,12 +1,8 @@
 <?php
-/*
-* Created by DevilKing
-* Date: 2019- 06-08
-*Time: 16:26
-*/
 
 namespace app\api\controller\cms;
 
+use app\lib\file\ZergImageUploader;
 use think\facade\Request;
 use app\lib\file\LocalUploader;
 use app\lib\exception\file\FileException;
@@ -33,5 +29,24 @@ class File
         }
         $file = (new LocalUploader($request))->upload();
         return $file;
+    }
+
+    /**
+     * @return mixed
+     * @throws FileException
+     * 自定义上传图片
+     */
+    public function postCustomImage()
+    {
+        try {
+            $request = Request::file();
+        } catch (\Exception $e) {
+            throw new FileException([
+                'msg' => '字段中含有非法字符',
+            ]);
+        }
+        $result = (new ZergImageUploader($request))->upload();
+
+        return $result;
     }
 }

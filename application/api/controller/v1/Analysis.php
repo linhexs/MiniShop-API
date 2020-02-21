@@ -9,6 +9,8 @@
 namespace app\api\controller\v1;
 
 
+use app\api\service\Statistics;
+use app\lib\exception\analysis\AnalysisException;
 use think\facade\Request;
 use app\api\model\Order;
 class Analysis
@@ -16,10 +18,7 @@ class Analysis
     public function getOrderBaseStatistics()
     {
         $params = Request::get();
-        $result = Order::getOrderStatisticsByDate($params);
-        if ($result->isEmpty()) {
-            throw new AnalysisException();
-        }
+        $result = Statistics::getOrderStatisticsByDate($params);
         return $result;
     }
 

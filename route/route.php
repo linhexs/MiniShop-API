@@ -68,6 +68,8 @@ Route::group('', function () {
         });
         //上传文件类接口
         Route::post('file','api/cms.File/postFile');
+        // 自定义文件上传接口
+        Route::post('file/image', 'api/cms.File/postCustomImage');
     });
 //    Route::group('v1', function () {
 //        Route::group('book',function (){

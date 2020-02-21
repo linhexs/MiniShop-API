@@ -86,7 +86,7 @@ class Banner
             );
         }
         $banner->save($bannerInfo);
-        return writeJson(201,'轮播图基础信息更新成功！');
+        return writeJson(201,[],'轮播图基础信息更新成功！');
     }
     /**
      * 新增轮播图元素

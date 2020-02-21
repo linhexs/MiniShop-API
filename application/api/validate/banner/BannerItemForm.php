@@ -36,7 +36,7 @@ class BannerItemForm extends BaseValidate
             if (!empty($v['id'])) {
                 return '新增轮播图元素不能包含id';
             }
-            if (empty($v['img_id']) || empty($v['key_word']) || empty($v['type']) || empty($v['banner_id'])) {
+            if (empty($v['img_id']) || empty($v['key_word']) ) {
                 return '轮播图元素信息不完整';
             }
         }
@@ -49,7 +49,7 @@ class BannerItemForm extends BaseValidate
             if (empty($v['id'])) {
                 return '轮播图元素id不能为空';
             }
-            if (empty($v['img_id']) || empty($v['key_word']) || empty($v['type'])) {
+            if (empty($v['img_id']) || empty($v['key_word'])) {
                 return '轮播图元素信息不完整';
             }
         }
