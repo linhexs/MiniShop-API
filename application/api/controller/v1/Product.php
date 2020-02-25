@@ -123,7 +123,7 @@ class Product
         $params = Request::put();
         $params['main_img_url'] = explode(config('setting.img_prefix'), $params['main_img_url'])[1];
         ProductModel::update($params);
-        return writeJson(201, '商品信息更新成功');
+        return writeJson(201, [],'商品信息更新成功');
     }
 
     /**
